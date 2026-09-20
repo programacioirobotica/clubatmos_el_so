@@ -11,4 +11,6 @@ npm run dev
 
 ## Publicació
 
-El flux de GitHub Actions publica automàticament el contingut de `main` a GitHub Pages. Després de crear el repositori, activa **Settings → Pages → Build and deployment → GitHub Actions**.
+El flux de GitHub Actions construeix i publica automàticament cada canvi de la branca `main` a GitHub Pages.
+
+Web pública: https://programacioirobotica.github.io/clubatmos_el_so/
