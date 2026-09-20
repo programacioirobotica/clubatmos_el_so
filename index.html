@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071b2a" />
+    <meta name="description" content="El Club ATMOS investiga la contaminació acústica: simulacions, controls i reptes interactius de Robots en Acció!" />
+    <meta property="og:title" content="Club ATMOS · Laboratori del so" />
+    <meta property="og:description" content="Investiga la contaminació acústica amb simulacions i reptes interactius de Robots en Acció!" />
+    <meta property="og:image" content="/assets/atmos-01.webp" />
+    <link rel="icon" href="/assets/rea-logo.webp" type="image/webp" />
+    <title>Club ATMOS · Laboratori del so · Robots en Acció!</title>
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-talk" viewBox="0 0 64 64"><circle cx="18" cy="20" r="8"/><circle cx="44" cy="20" r="8"/><path d="M5 48c1-10 6-15 13-15s12 5 13 15M33 48c1-10 5-15 12-15s12 5 14 15"/><path d="M25 8h18a7 7 0 0 1 7 7v2a7 7 0 0 1-7 7h-4l-6 6v-6h-3"/></symbol>
+      <symbol id="icon-car" viewBox="0 0 64 64"><path d="M10 39l5-16c1-3 4-5 7-5h21c3 0 6 2 7 5l5 16v10H10z"/><path d="M17 34h31l-4-10H21z"/><circle cx="20" cy="49" r="5"/><circle cx="46" cy="49" r="5"/></symbol>
+      <symbol id="icon-mower" viewBox="0 0 64 64"><path d="M10 42h34l6 8H14zM39 41l9-18h7M47 23h10"/><circle cx="19" cy="51" r="5"/><circle cx="43" cy="51" r="5"/><path d="M15 35h19v7H15z"/></symbol>
+      <symbol id="icon-music" viewBox="0 0 64 64"><path d="M27 13v31a8 8 0 1 1-5-7V19l30-7v25a8 8 0 1 1-5-7V7z"/></symbol>
+      <symbol id="icon-ear" viewBox="0 0 64 64"><path d="M34 52c-6 0-9-4-9-9 0-7 10-8 10-17 0-4-3-7-7-7s-8 3-8 8"/><path d="M17 26c0-10 7-17 17-17s17 7 17 17c0 11-8 13-10 22-1 4-3 7-7 7"/><path d="M29 29c0-4 2-7 6-7 3 0 5 2 5 5 0 5-6 7-7 12"/></symbol>
+      <symbol id="icon-drum" viewBox="0 0 64 64"><ellipse cx="32" cy="18" rx="22" ry="8"/><path d="M10 18v27c0 5 10 9 22 9s22-4 22-9V18M15 25l34 22M49 25L15 47"/></symbol>
+    </svg>
+    <a class="skip-link" href="#main">Salta al contingut</a>
+    <header class="site-header">
+      <a class="brand" href="#inici" aria-label="Robots en Acció, Club ATMOS, inici">
+        <img class="brand-logo" src="/assets/rea-logo.webp" alt="" width="52" height="52" />
+        <span>ROBOTS EN ACCIÓ! <b>· CLUB ATMOS</b></span>
+      </a>
+      <nav aria-label="Navegació principal">
+        <a href="#explora">Aprèn</a>
+        <a href="#experimenta">Experimenta</a>
+        <a href="#activitats">Activitats</a>
+        <a href="#consequencies">Efectes</a>
+        <a href="#missio">Missió</a>
+        <span class="progress-pill" aria-live="polite"><span id="progressValue">0</span>% completat</span>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="inici">
+        <div class="hero-copy">
+          <div class="initiative-lockup" aria-label="Robots en Acció i El Club ATMOS">
+            <img class="rea-title" src="/assets/robots-en-accio.webp" alt="Robots en Acció!" width="1100" height="366" />
+            <span class="brand-divider" aria-hidden="true"></span>
+            <img class="atmos-title" src="/assets/club-atmos.webp" alt="El Club ATMOS" width="1200" height="400" />
+          </div>
+          <p class="eyebrow"><span></span> Investigació 01 · Contaminació acústica</p>
+          <h1>Investiguem<br><em>el so.</em></h1>
+          <p class="hero-lead">Som a l’any 2070. L’Ombra ha alterat el planeta i les ciutats són cada vegada més sorolloses. El Club ATMOS necessita entendre com funciona el so per reduir el soroll que ens fa malestar.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#explora">Comença la investigació <span aria-hidden="true">↓</span></a>
+            <button class="ghost-button" id="openPrimer" type="button">Quina és la missió?</button>
+          </div>
+          <dl class="hero-facts" aria-label="Idees clau">
+            <div><dt>01</dt><dd><b>El so vibra</b><span>Descobrirem com comença i com arriba fins a l’oïda.</span></dd></div>
+            <div><dt>02</dt><dd><b>Greu, agut, fort o fluix?</b><span>Aprendrem a no confondre el to amb la intensitat.</span></dd></div>
+            <div><dt>03</dt><dd><b>Mesurem i actuem</b><span>Farem hipòtesis, comprovarem dades i buscarem solucions.</span></dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-label="El Club ATMOS investiga una projecció hologràfica al seu laboratori">
+          <img class="hero-art" src="/assets/atmos-01.webp" alt="Els quatre membres del Club ATMOS investiguen una projecció hologràfica al laboratori" width="1280" height="720" />
+          <div class="scope-grid" aria-hidden="true"></div>
+          <canvas id="heroScope" width="700" height="520" aria-hidden="true"></canvas>
+          <div class="live-meter">
+            <span>NIVELL SIMULAT</span>
+            <strong><span id="heroDb">68</span> <small>dB</small></strong>
+            <div class="meter-track"><i id="heroMeterFill"></i></div>
+            <p id="heroStatus"><span></span> Ambient notable</p>
+          </div>
+          <p class="scope-caption">SENYAL / TEMPS</p>
+        </div>
+      </section>
+
+      <section class="foundations-section" id="explora">
+        <div class="section-heading foundations-heading">
+          <div><p class="eyebrow"><span></span> Abans de mesurar</p><h2>Què és el so?</h2></div>
+          <p>Farem tres petites investigacions. Primer pensa què passarà. Després prova-ho i compara la teva idea amb el resultat.</p>
+        </div>
+
+        <article class="foundation-lab" id="vibrationLab">
+          <div class="lesson-copy">
+            <span class="lesson-number">01 · VIBRACIÓ</span>
+            <h3>El so comença quan alguna cosa vibra</h3>
+            <p>Quan piquem un tambor, la seva membrana es mou molt de pressa. El tambor fa vibrar l’aire que té a prop. Després, el moviment passa d’un trosset d’aire al següent fins que ens arriba a l’orella. El so també pot passar per l’aigua i pels materials sòlids, però no pot viatjar si no hi ha cap material.</p>
+            <div class="simple-definition"><b>Vibrar</b><span>Vol dir moure’s molt de pressa endavant i enrere.</span></div>
+            <fieldset class="hypothesis-card" id="travelHypothesis"><legend>Abans de provar-ho: què creus que passa?</legend><label><input type="radio" name="travelGuess" value="a"/> L’aire viatja des del tambor fins a l’oïda.</label><label><input type="radio" name="travelGuess" value="b"/> La vibració passa d’una part de l’aire a la següent.</label><button type="button" id="checkTravelGuess">Comprova la meva idea</button><p id="travelGuessFeedback" aria-live="polite"></p></fieldset>
+          </div>
+          <div class="particle-sim">
+            <div class="sim-labels"><span>ON COMENÇA</span><span>ON ARRIBA</span></div>
+            <div class="particle-track" id="particleTrack"><div class="drum-source"><svg><use href="#icon-drum"></use></svg></div><div class="air-particles" aria-label="Puntets que mostren com la vibració passa per l’aire"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ear-target"><svg><use href="#icon-ear"></use></svg></div></div>
+            <button class="sim-action" id="startVibration" type="button">Pica el tambor</button>
+            <p id="vibrationResult" class="sim-conclusion" aria-live="polite">Prem el botó i mira com la vibració passa d’un puntet al següent.</p>
+          </div>
+        </article>
+
+        <article class="foundation-lab reverse" id="waveLab">
+          <div class="lesson-copy">
+            <span class="lesson-number">02 · TO I INTENSITAT</span>
+            <h3>Un so pot ser greu o agut, i també fort o fluix</h3>
+            <p>La <strong>freqüència</strong> ens diu quantes vibracions hi ha cada segon. Una freqüència baixa fa un so greu; una freqüència alta fa un so agut. La <strong>intensitat</strong> ens diu si el so és fort o fluix. Un so greu també pot ser fort o fluix, i un so agut també.</p>
+            <fieldset class="hypothesis-card" id="pitchHypothesis"><legend>Abans de provar-ho: què farà el so més agut?</legend><label><input type="radio" name="pitchGuess" value="a"/> Fer l’ona més alta.</label><label><input type="radio" name="pitchGuess" value="b"/> Fer més vibracions cada segon.</label><button type="button" id="checkPitchGuess">Comprova la meva idea</button><p id="pitchGuessFeedback" aria-live="polite"></p></fieldset>
+          </div>
+          <div class="wave-sim">
+            <canvas id="waveLabCanvas" width="760" height="280" aria-label="Ona que canvia segons la freqüència i la intensitat"></canvas>
+            <div class="wave-controls">
+              <label for="pitchSlider"><span>TO</span><b id="pitchWord">greu</b><input id="pitchSlider" type="range" min="1" max="10" value="3"/><small>poques vibracions ← → moltes vibracions</small></label>
+              <label for="strengthSlider"><span>INTENSITAT</span><b id="strengthWord">fluix</b><input id="strengthSlider" type="range" min="1" max="10" value="3"/><small>ona petita ← → ona gran</small></label>
+            </div>
+            <div class="wave-readout"><span><b id="frequencyValue">260</b> Hz<small>vibracions cada segon</small></span><span><b id="strengthValue">32</b> dB<small>nivell del so</small></span></div>
+            <button class="sim-action" id="playWave" type="button">Escolta aquest so</button>
+            <p class="sim-note">El volum de la mostra està limitat per protegir l’oïda.</p>
+          </div>
+        </article>
+
+        <article class="foundation-lab" id="dbLab">
+          <div class="lesson-copy">
+            <span class="lesson-number">03 · DECIBELS</span>
+            <h3>Els decibels indiquen el nivell del so</h3>
+            <p>Fem servir els <strong>decibels</strong>, que escrivim <strong>dB</strong>, per comparar si un so arriba amb més o menys intensitat. Els dB no ens diuen si el so és greu o agut.</p>
+            <fieldset class="hypothesis-card" id="dbHypothesis"><legend>Abans de provar-ho: què mesuren els dB?</legend><label><input type="radio" name="dbGuess" value="a"/> Si el so és greu o agut.</label><label><input type="radio" name="dbGuess" value="b"/> El nivell amb què ens arriba el so.</label><button type="button" id="checkDbGuess">Comprova la meva idea</button><p id="dbGuessFeedback" aria-live="polite"></p></fieldset>
+          </div>
+          <div class="situation-sim">
+            <div class="situation-stage" id="situationStage"><span id="situationIcon" aria-hidden="true">🤫</span><div><small id="situationZone">MOLT TRANQUIL</small><h4 id="situationName">Un xiuxiueig</h4><p id="situationAdvice">És un so molt fluix.</p></div><strong><b id="situationDb">20</b> dB</strong></div>
+            <label for="situationSlider">Mou el control per visitar diferents situacions</label>
+            <input id="situationSlider" type="range" min="0" max="7" step="1" value="0" aria-describedby="situationNote"/>
+            <div class="situation-scale" aria-hidden="true"><span>fluix</span><span>moderat</span><span>fort</span><span>molt fort</span></div>
+            <p id="situationNote" class="sim-note">Són valors aproximats. El temps que passem escoltant un so també és important.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="lab-section" id="experimenta">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> Zona d’experimentació</p>
+            <h2>Experimenta amb la distància</h2>
+          </div>
+          <p>Tria una font, escriu la teva hipòtesi i comprova com canvia el so quan l’oïda s’allunya o quan hi posem una barrera.</p>
+        </div>
+
+        <div class="lab-grid">
+          <form class="control-panel" id="soundControls" onsubmit="return false">
+            <div class="panel-title">
+              <span>CONTROLS</span>
+              <button type="button" id="resetLab" class="icon-button" aria-label="Reinicia la simulació" title="Reinicia">↻</button>
+            </div>
+
+            <fieldset>
+              <legend>1. Tria una font sonora</legend>
+              <p class="control-help">La <strong>font sonora</strong> és la persona o l’objecte que crea el so. Tria’n una i mira quants decibels (dB) marca a 1 metre.</p>
+              <div class="source-grid">
+                <label class="source-card">
+                  <input type="radio" name="source" value="55" data-name="Conversa" data-frequency="220" data-icon="icon-talk" checked />
+                  <svg class="source-icon" aria-hidden="true"><use href="#icon-talk"></use></svg><b>Conversa</b><small>55 dB a 1 m</small>
+                </label>
+                <label class="source-card">
+                  <input type="radio" name="source" value="75" data-name="Trànsit" data-frequency="120" data-icon="icon-car" />
+                  <svg class="source-icon" aria-hidden="true"><use href="#icon-car"></use></svg><b>Trànsit</b><small>75 dB a 1 m</small>
+                </label>
+                <label class="source-card">
+                  <input type="radio" name="source" value="90" data-name="Tallagespa" data-frequency="165" data-icon="icon-mower" />
+                  <svg class="source-icon" aria-hidden="true"><use href="#icon-mower"></use></svg><b>Tallagespa</b><small>90 dB a 1 m</small>
+                </label>
+                <label class="source-card">
+                  <input type="radio" name="source" value="105" data-name="Concert" data-frequency="90" data-icon="icon-music" />
+                  <svg class="source-icon" aria-hidden="true"><use href="#icon-music"></use></svg><b>Concert</b><small>105 dB a 1 m</small>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="experiment-hypothesis">
+              <legend>2. Fes una hipòtesi</legend>
+              <p>Encara no moguis el control. Què creus que passarà amb el so si l’oïda s’allunya?</p>
+              <label for="guess5">A 5 metres serà...</label><select id="guess5"><option value="">Tria una resposta</option><option value="same">igual</option><option value="lower">més fluix</option><option value="muchLower">molt més fluix</option></select>
+              <label for="guess10">A 10 metres serà...</label><select id="guess10"><option value="">Tria una resposta</option><option value="same">igual</option><option value="lower">més fluix</option><option value="muchLower">molt més fluix</option></select>
+              <button type="button" id="setDistanceGuess">Ja tinc la meva hipòtesi</button>
+              <p id="distanceGuessFeedback" aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset>
+              <legend>4. Prova una protecció</legend>
+              <div class="barrier-options">
+                <label><input type="radio" name="barrier" value="0" data-name="Sense barrera" checked /><span>Sense barrera<small>0 dB</small></span></label>
+                <label><input type="radio" name="barrier" value="5" data-name="Vegetació" /><span>Vegetació<small>−5 dB</small></span></label>
+                <label><input type="radio" name="barrier" value="15" data-name="Pantalla acústica" /><span>Pantalla<small>−15 dB</small></span></label>
+              </div>
+            </fieldset>
+
+            <div class="audio-control">
+              <div><b>Mostra sonora</b><small>Volum limitat i independent dels dB simulats</small></div>
+              <button class="toggle-button" id="audioToggle" type="button" role="switch" aria-checked="false"><span></span><b>Silenciat</b></button>
+            </div>
+          </form>
+
+          <div class="simulation-panel">
+            <div class="scene" id="soundScene">
+              <div class="scene-topline"><span id="sceneSource">CONVERSA</span><span>VISTA SUPERIOR</span></div>
+              <canvas id="soundCanvas" width="920" height="480" aria-label="Representació de la propagació del so"></canvas>
+              <div class="source-node" id="sourceNode"><svg aria-hidden="true"><use id="sceneSourceUse" href="#icon-talk"></use></svg><small id="sceneSourceLabel">conversa</small></div>
+              <div class="listener-node" id="listenerNode"><svg aria-hidden="true"><use href="#icon-ear"></use></svg><small>oïda</small></div>
+              <div class="barrier-node" id="barrierNode" aria-hidden="true"></div>
+              <div class="distance-line"><i></i><b id="sceneDistance">4 m</b><i></i></div>
+            </div>
+
+            <div class="range-block simulation-distance-control">
+              <div class="range-label"><label for="distance">3. Comprova la distància</label><output id="distanceValue">4 m</output></div>
+              <input id="distance" type="range" min="1" max="20" step="1" value="4" />
+              <div class="range-scale"><span>1 m</span><span>10 m</span><span>20 m</span></div>
+            </div>
+
+            <div class="result-strip">
+              <div class="db-result">
+                <span>RESULTAT ESTIMAT</span>
+                <strong><span id="resultDb">43</span> <small>dB</small></strong>
+              </div>
+              <div class="impact-result">
+                <span>INTERPRETACIÓ DEL NIVELL</span>
+                <b id="impactLabel">Nivell baix · ambient tranquil</b>
+                <div class="spectrum" aria-hidden="true"><i id="spectrumNeedle"></i></div>
+                <div class="spectrum-labels"><small>tranquil</small><small>notable</small><small>elevat</small></div>
+              </div>
+            </div>
+            <div class="experiment-conclusion" id="experimentConclusion" aria-live="polite"><b>Comprova la teva hipòtesi:</b> mou l’oïda a 5 m i 10 m i compara els dB.</div>
+          </div>
+        </div>
+
+        <div class="activity-studio" id="activitats">
+          <div class="activity-studio-head">
+            <div>
+              <p class="eyebrow"><span></span> Estació d’activitats · 3 activitats</p>
+              <h2>Posa a prova el que has descobert</h2>
+            </div>
+            <div class="activity-course-progress" aria-live="polite">
+              <p>Completa les tres activitats. Quan n’acabis una, continua amb la següent.</p>
+              <strong><span id="activityDone">0</span> de 3 activitats completades</strong>
+              <div class="course-progress-track" aria-hidden="true"><i id="activityProgressFill"></i></div>
+            </div>
+          </div>
+
+          <div class="activity-tabs" role="tablist" aria-label="Activitats disponibles">
+            <button type="button" role="tab" aria-selected="true" aria-controls="activityClassify" id="tabClassify" data-panel="activityClassify"><span>01</span><b>Classifica</b><small class="tab-state">Pendent</small></button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="activityMap" id="tabMap" data-panel="activityMap"><span>02</span><b>Mapa acústic</b><small class="tab-state">Pendent</small></button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="activityMixer" id="tabMixer" data-panel="activityMixer"><span>03</span><b>Mescla fonts <em class="eso-badge">ESO</em></b><small class="tab-state">Pendent</small></button>
+          </div>
+
+          <div class="activity-panels">
+            <section class="activity-panel active" id="activityClassify" role="tabpanel" aria-labelledby="tabClassify">
+              <div class="activity-copy">
+                <p class="activity-number">ACTIVITAT 01 · INTERPRETAR</p>
+                <h3>Classifica els paisatges sonors</h3>
+                <p>Indica si cada situació té un nivell baix, moderat o alt. Fixa’t en els dB, no només en el nom del so.</p>
+                <div class="activity-key"><span class="quiet">&lt; 55 dB · nivell baix</span><span class="notice">55–69 dB · nivell moderat</span><span class="high">≥ 70 dB · nivell alt</span></div>
+                <img class="activity-image" src="/assets/atmos-06.webp" alt="El Club ATMOS classifica diferents fonts sonores" loading="lazy" width="1280" height="720" />
+              </div>
+              <div class="classify-list" id="classifyList">
+                <div class="classify-row" data-answer="quiet"><span class="sound-badge">P1</span><div><b>Biblioteca</b><small>38 dB</small></div><select aria-label="Classifica biblioteca"><option value="">Tria un nivell...</option><option value="quiet">Baix (&lt; 55 dB)</option><option value="notice">Moderat (55–69 dB)</option><option value="high">Alt (≥ 70 dB)</option></select><i aria-hidden="true"></i></div>
+                <div class="classify-row" data-answer="notice"><span class="sound-badge">P2</span><div><b>Treball en grup</b><small>62 dB</small></div><select aria-label="Classifica treball en grup"><option value="">Tria un nivell...</option><option value="quiet">Baix (&lt; 55 dB)</option><option value="notice">Moderat (55–69 dB)</option><option value="high">Alt (≥ 70 dB)</option></select><i aria-hidden="true"></i></div>
+                <div class="classify-row" data-answer="high"><span class="sound-badge">P3</span><div><b>Trànsit intens</b><small>78 dB</small></div><select aria-label="Classifica trànsit intens"><option value="">Tria un nivell...</option><option value="quiet">Baix (&lt; 55 dB)</option><option value="notice">Moderat (55–69 dB)</option><option value="high">Alt (≥ 70 dB)</option></select><i aria-hidden="true"></i></div>
+                <div class="classify-row" data-answer="high"><span class="sound-badge">P4</span><div><b>Taller amb eines</b><small>88 dB</small></div><select aria-label="Classifica taller amb eines"><option value="">Tria un nivell...</option><option value="quiet">Baix (&lt; 55 dB)</option><option value="notice">Moderat (55–69 dB)</option><option value="high">Alt (≥ 70 dB)</option></select><i aria-hidden="true"></i></div>
+                <button class="activity-check" id="checkClassify" type="button">Comprova la classificació</button>
+                <p class="activity-feedback" id="classifyFeedback" aria-live="polite"></p>
+                <button class="next-activity" type="button" data-next="activityMap" hidden>Continua amb l’activitat 2 <span aria-hidden="true">→</span></button>
+              </div>
+            </section>
+
+            <section class="activity-panel" id="activityMixer" role="tabpanel" aria-labelledby="tabMixer" hidden>
+              <div class="activity-copy">
+                <p class="activity-number">ACTIVITAT 03 · CALCULAR</p>
+                <h3>Mescla fonts sonores</h3>
+                <p class="eso-level-note"><b>ACTIVITAT PER A L’ESO</b> · Pensada per aprofundir en el càlcul dels decibels.</p>
+                <p>Primer descobreix com funciona el comptador de decibels. Després podràs barrejar sons d’una aula.</p>
+                <img class="activity-image" src="/assets/atmos-08.webp" alt="El Club ATMOS compara nivells mitjançant un gràfic de barres" loading="lazy" width="1280" height="720" />
+              </div>
+              <div class="mixer-board">
+                <section class="log-game" aria-labelledby="logGameTitle">
+                  <header class="relation-head">
+                    <p class="mini-step">PAS 1 · COMPAREM DUES MANERES DE CRÉIXER</p>
+                    <h4 id="logGameTitle">Una línia recta i una corba que es va aplanant</h4>
+                    <p>Als dos gràfics, l’eix horitzontal mostra una quantitat que es duplica: 1, 2, 4, 8 i 16. Mira si el resultat de l’eix vertical puja igual.</p>
+                  </header>
+                  <div class="relation-guess">
+                    <b>Fes una hipòtesi</b>
+                    <p>Quan la quantitat de l’eix horitzontal es fa molt gran, què passarà a la corba logarítmica?</p>
+                    <div class="quick-guess" id="logGuess"><button type="button" data-answer="double">El resultat també es doblarà</button><button type="button" data-answer="little">El resultat pujarà molt menys</button></div>
+                    <p id="logGuessFeedback" class="guess-feedback" aria-live="polite"></p>
+                  </div>
+                  <div class="relation-control">
+                    <label for="logSteps">Mou el control i duplica la quantitat: <strong id="relationAmount">1</strong></label>
+                    <input id="logSteps" type="range" min="0" max="4" step="1" value="0" disabled aria-describedby="relationExplanation logLesson" />
+                    <div class="log-scale-labels" aria-hidden="true"><span>1</span><span>2</span><span>4</span><span>8</span><span>16</span></div>
+                  </div>
+                  <p class="same-scale-note"><strong>Important:</strong> els dos gràfics fan servir la mateixa escala vertical, de 0 a 16. Així els podem comparar de veritat.</p>
+                  <div class="relation-graphs">
+                    <figure class="relation-graph linear-graph"><figcaption><b>RELACIÓ LINEAL</b><span>La línia puja sempre al mateix ritme.</span></figcaption><canvas id="linearGraph" width="460" height="300" aria-label="Gràfic lineal: quan la quantitat es duplica, el resultat també es duplica"></canvas><output id="linearReadout">Quantitat 1 → resultat 1</output></figure>
+                    <figure class="relation-graph log-graph"><figcaption><b>RELACIÓ LOGARÍTMICA</b><span>La corba puja cada vegada més a poc a poc.</span></figcaption><canvas id="logGraph" width="460" height="300" aria-label="Gràfic logarítmic: quan la quantitat es duplica, el resultat només puja un pas"></canvas><output id="logReadout">Quantitat 1 → 0 passos</output></figure>
+                  </div>
+                  <output class="relation-explanation" id="relationExplanation" aria-live="polite">Comencem amb la quantitat 1. Mou el control per veure com creixen els dos gràfics.</output>
+                  <div class="sound-bridge">
+                    <div>
+                      <p class="mini-step">PAS 2 · HO APLIQUEM ALS DECIBELS</p>
+                      <h4>Ara tornem als altaveus</h4>
+                      <p>En el comptador de dB passa una cosa semblant a la corba logarítmica. Cada vegada que doblem els altaveus iguals, el nivell només puja uns 3 dB.</p>
+                    </div>
+                    <div class="log-game-result" aria-live="polite">
+                      <div class="speaker-grid" id="speakerGrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                      <p><strong id="logSpeakerCount">1 altaveu</strong><span><b id="logDb">60</b> dB</span></p>
+                      <output id="logLesson">Comencem amb 1 altaveu que fa 60 dB.</output>
+                    </div>
+                  </div>
+                  <div class="log-discovery"><b>Què hem descobert?</b><p>Quan els altaveus es doblen, l’energia del so també es dobla. Però el nombre de dB només puja 3 cada vegada. Aquest tipus de comptador s’anomena <strong>escala logarítmica</strong>: fa servir passos petits per representar canvis molt grans.</p></div>
+                </section>
+                <div class="mixer-next-step"><b>PAS 2 · ARA PROVA-HO</b><span>Activa sons diferents i mira quin resultat donen junts.</span></div>
+                <div class="mixer-sources" id="mixerSources">
+                  <label><input type="checkbox" data-db="42" checked /><span><i style="--level:42%"></i><b>Projector</b><small>42 dB</small></span></label>
+                  <label><input type="checkbox" data-db="55" checked /><span><i style="--level:55%"></i><b>Conversa</b><small>55 dB</small></span></label>
+                  <label><input type="checkbox" data-db="63" /><span><i style="--level:63%"></i><b>Cadires</b><small>63 dB</small></span></label>
+                  <label><input type="checkbox" data-db="68" /><span><i style="--level:68%"></i><b>Passadís</b><small>68 dB</small></span></label>
+                </div>
+                <div class="mixer-result">
+                  <div><span>RESULTAT</span><strong><b id="mixedDb">55</b> dB</strong></div>
+                  <div class="mixer-bars" id="mixerBars" aria-hidden="true"></div>
+                  <p id="mixerExplanation">La font de 55 dB domina el resultat.</p>
+                </div>
+                <div class="mixer-challenge">
+                  <p><b>Repte:</b> activa exactament tres fonts i mantén el nivell combinat per sota de 66 dB.</p>
+                  <button class="activity-check" id="checkMixer" type="button">Comprova el repte</button>
+                  <p class="activity-feedback" id="mixerFeedback" aria-live="polite"></p>
+                </div>
+                <details class="formula-card"><summary>Per a qui vulgui saber-ne més: la fórmula</summary><span>Nivell combinat</span><b>10 · log<sub>10</sub>(Σ 10<sup>L/10</sup>)</b></details>
+              </div>
+            </section>
+
+            <section class="activity-panel" id="activityMap" role="tabpanel" aria-labelledby="tabMap" hidden>
+              <div class="activity-copy">
+                <p class="activity-number">ACTIVITAT 02 · INVESTIGAR</p>
+                <h3>Construeix un mapa acústic</h3>
+                <p><strong>Aquest plànol simula el pati d’una escola.</strong> Abans de mesurar, mira les zones i pensa quin punt creus que serà més tranquil. Després mesura els sis punts, compara els resultats i decideix on posaries un espai de lectura.</p>
+                <label class="map-prediction" for="mapGuess">La meva hipòtesi és el punt <select id="mapGuess"><option value="">?</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></label>
+                <p class="map-progress"><span id="mapCount">0</span>/6 punts mesurats</p>
+                <img class="activity-image" src="/assets/atmos-07.webp" alt="El Club ATMOS estudia un mapa hologràfic per localitzar el soroll" loading="lazy" width="1280" height="720" />
+              </div>
+              <div class="map-workspace">
+                <div class="school-map-scroll" tabindex="0" aria-label="Desplaça’t horitzontalment per veure tot el plànol si cal">
+                  <div class="school-map" id="schoolMap" aria-label="Plànol del pati de l’escola amb edifici, pista, jardí, bancs i carrer">
+                  <div class="patio-title">PATI DE L’ESCOLA</div>
+                  <div class="map-zone building"><span class="zone-name">EDIFICI DE L’ESCOLA</span><div class="school-windows" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="school-door">ENTRADA</span></div>
+                  <div class="map-zone garden"><span class="zone-name">JARDÍ I ARBRES</span><div class="tree-row" aria-hidden="true"><span>🌳</span><span>🌳</span><span>🌳</span></div></div>
+                  <div class="map-zone court"><span class="zone-name">PISTA ESPORTIVA</span><div class="court-circle" aria-hidden="true"></div><div class="goal goal-left" aria-hidden="true"></div><div class="goal goal-right" aria-hidden="true"></div></div>
+                  <div class="map-zone benches"><span class="zone-name">ZONA DE BANCS</span><div class="bench-row" aria-hidden="true"><i></i><i></i><i></i></div></div>
+                  <div class="map-zone street"><span class="zone-name">CARRER AMB TRÀNSIT</span><svg class="street-car car-one" aria-hidden="true"><use href="#icon-car"></use></svg><svg class="street-car car-two" aria-hidden="true"><use href="#icon-car"></use></svg></div>
+                  <div class="school-fence" aria-hidden="true"><span>VALLA DEL PATI</span></div>
+                  <button type="button" class="map-point" style="--x:30%;--y:28%" data-point="A" data-place="entrada de l’escola" data-db="58" aria-label="Mesura el punt A, entrada de l’escola"><span>A</span><b>?</b><em>entrada</em></button>
+                  <button type="button" class="map-point" style="--x:14%;--y:69%" data-point="B" data-place="jardí" data-db="49" aria-label="Mesura el punt B, jardí i arbres"><span>B</span><b>?</b><em>jardí</em></button>
+                  <button type="button" class="map-point" style="--x:49%;--y:51%" data-point="C" data-place="centre de la pista" data-db="72" aria-label="Mesura el punt C, centre de la pista"><span>C</span><b>?</b><em>pista</em></button>
+                  <button type="button" class="map-point" style="--x:63%;--y:84%" data-point="D" data-place="zona de bancs" data-db="65" aria-label="Mesura el punt D, zona de bancs"><span>D</span><b>?</b><em>bancs</em></button>
+                  <button type="button" class="map-point" style="--x:77%;--y:33%" data-point="E" data-place="prop de la valla" data-db="79" aria-label="Mesura el punt E, prop de la valla i del carrer"><span>E</span><b>?</b><em>valla</em></button>
+                    <button type="button" class="map-point" style="--x:91%;--y:67%" data-point="F" data-place="carrer" data-db="74" aria-label="Mesura el punt F, carrer amb trànsit"><span>F</span><b>?</b><em>carrer</em></button>
+                  </div>
+                </div>
+                <div class="map-question" id="mapQuestion">
+                  <p>Quin punt recomanaries per a l’espai de lectura?</p>
+                  <div>
+                    <label><input type="radio" name="mapAnswer" value="A" /><span>A</span></label>
+                    <label><input type="radio" name="mapAnswer" value="B" /><span>B</span></label>
+                    <label><input type="radio" name="mapAnswer" value="C" /><span>C</span></label>
+                    <label><input type="radio" name="mapAnswer" value="D" /><span>D</span></label>
+                    <label><input type="radio" name="mapAnswer" value="E" /><span>E</span></label>
+                    <label><input type="radio" name="mapAnswer" value="F" /><span>F</span></label>
+                  </div>
+                  <button class="activity-check" id="checkMap" type="button">Comprova la decisió</button>
+                  <p class="activity-feedback" id="mapFeedback" aria-live="polite"></p>
+                  <button class="next-activity" type="button" data-next="activityMixer" hidden>Continua amb l’activitat 3 <span aria-hidden="true">→</span></button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="concept-row">
+          <article><span>01</span><h3>El comptador de dB</h3><p>Quan doblem dos sons iguals, el nombre de dB només puja 3.</p></article>
+          <article><span>02</span><h3>Distància</h3><p>En un espai obert ideal, doblar la distància redueix el nivell aproximadament 6 dB.</p></article>
+          <article><span>03</span><h3>Com reduïm el soroll?</h3><p>Podem abaixar el volum, allunyar-nos o posar una barrera entre el so i nosaltres.</p></article>
+        </div>
+      </section>
+
+      <section class="effects-section" id="consequencies">
+        <div class="effects-wrap">
+          <div class="effects-copy">
+            <p class="eyebrow light"><span></span> Del so al soroll</p>
+            <h2>Quan es converteix en contaminació acústica?</h2>
+            <p>El so forma part de la vida. Parlar, riure o escoltar música no és dolent. Parlem de <strong>contaminació acústica</strong> quan hi ha soroll excessiu, molest o repetit que dificulta les activitats i afecta el benestar.</p>
+            <div class="ombra-note"><b>L’Ombra i el soroll</b><p>L’Ombra no crea directament tot el soroll. Però el món de 2070 té més màquines, trànsit i activitat humana. Reduir aquest soroll també ajuda a construir espais més saludables.</p></div>
+          </div>
+          <div class="effects-grid">
+            <article><span aria-hidden="true">🧠</span><h3>Concentració</h3><p>Un soroll continu pot fer més difícil llegir, pensar o seguir una explicació.</p></article>
+            <article><span aria-hidden="true">😴</span><h3>Descans</h3><p>El soroll pot dificultar adormir-nos o fer que descansem pitjor.</p></article>
+            <article><span aria-hidden="true">😣</span><h3>Benestar</h3><p>Podem sentir cansament, molèstia, nervis o irritació.</p></article>
+            <article><span aria-hidden="true">👂</span><h3>Oïda</h3><p>Els sons molt forts o escoltats durant massa temps poden fer mal a l’oïda.</p></article>
+          </div>
+        </div>
+        <p class="effects-rule"><b>Recorda:</b> no només importa el nombre de dB. També importa quant de temps dura el soroll i com ens afecta.</p>
+      </section>
+
+      <section class="mission-section" id="missio">
+        <div class="mission-intro">
+          <p class="eyebrow light"><span></span> Activitat final</p>
+          <h2>Missió: recupera el pati</h2>
+          <p>Al pati sol haver-hi un nivell sonor de <strong>84 dB</strong>. Volem baixar aquest nivell fins a <strong>69 dB o menys</strong>. Tria exactament <strong>3 solucions</strong>: cadascuna redueix el nivell en els dB indicats i costa els punts que s’hi mostren. Tens <strong>7 punts</strong> per gastar en total; no els pots superar.</p>
+          <div class="mission-rules"><span>Objectiu: 69 dB o menys</span><span>Tria exactament 3 solucions</span><span>Pressupost total: 7 punts</span></div>
+        </div>
+
+        <figure class="mission-banner">
+          <img src="/assets/atmos-05.webp" alt="El Club ATMOS compara solucions per reduir el soroll en diferents espais" loading="lazy" width="1280" height="720" />
+          <figcaption><span>MISSIÓ DEL CLUB</span><b>Tria les solucions que t’ajudin a assolir l’objectiu sense passar dels punts disponibles.</b></figcaption>
+        </figure>
+
+        <div class="mission-board">
+          <div class="mission-status">
+            <div class="dial" id="missionDial"><span><b id="missionDb">84</b><small>dB</small></span></div>
+            <div><p>NIVELL DEL PATI</p><h3 id="missionMessage">Cal intervenir</h3><small id="missionHint">Tria exactament 3 solucions i intenta arribar a 69 dB sense passar de 7 punts.</small></div>
+          </div>
+
+          <dl class="mission-counters" aria-label="Estat de la proposta">
+            <div><dt>Punts utilitzats</dt><dd><span id="budgetValueTop">0</span> / 7</dd></div>
+            <div><dt>Solucions triades</dt><dd><span id="measureCount">0</span> / 3</dd></div>
+          </dl>
+
+          <div class="measures" id="measures">
+            <button type="button" data-reduction="4" data-cost="2"><span>Allunyar l’altaveu</span><small>−4 dB · 2 punts</small><i></i></button>
+            <button type="button" data-reduction="6" data-cost="2"><span>Abaixar el volum</span><small>−6 dB · 2 punts</small><i></i></button>
+            <button type="button" data-reduction="7" data-cost="4"><span>Posar una pantalla</span><small>−7 dB · 4 punts</small><i></i></button>
+            <button type="button" data-reduction="5" data-cost="3"><span>Separar les zones de joc</span><small>−5 dB · 3 punts</small><i></i></button>
+            <button type="button" data-reduction="2" data-cost="1"><span>Afegir plantes</span><small>−2 dB · 1 punt</small><i></i></button>
+            <button type="button" data-reduction="4" data-cost="2"><span>Posar materials que absorbeixen el so</span><small>−4 dB · 2 punts</small><i></i></button>
+          </div>
+
+          <div class="budget-row">
+            <span>Pressupost utilitzat</span>
+            <div class="budget-dots" id="budgetDots" aria-label="0 de 7 punts utilitzats"></div>
+            <b><span id="budgetValue">0</span>/7</b>
+          </div>
+
+          <div class="mission-actions">
+            <button type="button" class="secondary-button" id="resetMission">Reinicia</button>
+            <button type="button" class="primary-button dark" id="checkMission">Comprova la proposta</button>
+          </div>
+          <div id="missionFeedback" class="mission-feedback" hidden aria-live="polite"></div>
+          <figure class="mission-success-art" id="missionSuccessArt" hidden>
+            <img src="/assets/atmos-10.webp" alt="El Club ATMOS celebra que ha completat l’anàlisi sonora" loading="lazy" width="1280" height="720" />
+            <figcaption>Anàlisi completada pel Club ATMOS</figcaption>
+          </figure>
+        </div>
+
+        <div class="exit-ticket">
+          <figure><img src="/assets/atmos-09.webp" alt="El Club ATMOS reflexiona sobre els resultats de la investigació" loading="lazy" width="1280" height="720" /></figure>
+          <div><p>ABANS D’ACABAR</p><h3>Quina afirmació explica millor el que has observat?</h3></div>
+          <form id="quizForm">
+            <label><input type="radio" name="quiz" value="a" /><span>A. El soroll desapareix del tot si posem plantes.</span></label>
+            <label><input type="radio" name="quiz" value="b" /><span>B. La distància i les barreres poden reduir el nivell que rep una persona.</span></label>
+            <label><input type="radio" name="quiz" value="c" /><span>C. Dos sons de 50 dB junts sempre fan 100 dB.</span></label>
+            <button type="submit">Comprova la resposta</button>
+            <p id="quizFeedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand"><img src="/assets/rea-logo.webp" alt="Robots en Acció!" width="52" height="52" /><p><b>Club ATMOS · Laboratori del so</b><br />Una iniciativa de Robots en Acció!</p></div>
+      <p>Les dades són una aproximació didàctica. Per mesurar un espai real cal utilitzar un sonòmetre.</p>
+    </footer>
+
+    <dialog id="primerDialog">
+      <button class="dialog-close" id="closePrimer" aria-label="Tanca">×</button>
+      <p class="eyebrow"><span></span> Idea clau</p>
+      <h2>La missió del Club ATMOS</h2>
+      <p>L’Ombra ha alterat l’equilibri del planeta. A més, el trànsit, les màquines i altres activitats humanes han omplert molts espais de soroll. Primer entendrem com funciona el so. Després ajudarem el Club ATMOS a reduir la contaminació acústica.</p>
+      <div class="mini-demo mission-steps">
+        <div><span>PAS 1</span><b>Entendre</b></div><i>→</i><div><span>PAS 2</span><b>Comprovar</b></div><i>→</i><div class="accent"><span>PAS 3</span><b>Actuar</b></div>
+      </div>
+      <button class="primary-button" id="primerContinue">Entesos, comencem</button>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
