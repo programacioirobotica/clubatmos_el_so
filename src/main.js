@@ -167,6 +167,48 @@ function stopAudio() {
   }
 }
 
+async function playDrumHit() {
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass) throw new Error('Web Audio is not supported');
+  audioContext = audioContext || new AudioContextClass();
+  if (audioContext.state === 'suspended') await audioContext.resume();
+
+  const now = audioContext.currentTime;
+  const output = audioContext.createGain();
+  output.gain.value = .28;
+  output.connect(audioContext.destination);
+
+  const thump = audioContext.createOscillator();
+  const thumpEnvelope = audioContext.createGain();
+  thump.type = 'sine';
+  thump.frequency.setValueAtTime(145, now);
+  thump.frequency.exponentialRampToValueAtTime(55, now + .14);
+  thumpEnvelope.gain.setValueAtTime(.0001, now);
+  thumpEnvelope.gain.exponentialRampToValueAtTime(.46, now + .006);
+  thumpEnvelope.gain.exponentialRampToValueAtTime(.0001, now + .16);
+  thump.connect(thumpEnvelope).connect(output);
+  thump.addEventListener('ended', () => output.disconnect(), { once: true });
+  thump.start(now);
+  thump.stop(now + .17);
+
+  const noise = audioContext.createBufferSource();
+  const buffer = audioContext.createBuffer(1, Math.floor(audioContext.sampleRate * .12), audioContext.sampleRate);
+  const samples = buffer.getChannelData(0);
+  for (let i = 0; i < samples.length; i++) samples[i] = Math.random() * 2 - 1;
+  noise.buffer = buffer;
+  const filter = audioContext.createBiquadFilter();
+  filter.type = 'bandpass';
+  filter.frequency.value = 450;
+  filter.Q.value = .9;
+  const snapEnvelope = audioContext.createGain();
+  snapEnvelope.gain.setValueAtTime(.0001, now);
+  snapEnvelope.gain.exponentialRampToValueAtTime(.25, now + .003);
+  snapEnvelope.gain.exponentialRampToValueAtTime(.0001, now + .11);
+  noise.connect(filter).connect(snapEnvelope).connect(output);
+  noise.start(now);
+  noise.stop(now + .12);
+}
+
 function updateTone() {
   if (!oscillator || !gain) return;
   oscillator.frequency.setTargetAtTime(state.frequency, audioContext.currentTime, .05);
@@ -276,11 +318,16 @@ setupGuess('#checkTravelGuess', 'travelGuess', '#travelGuessFeedback', 'b', 'La 
 setupGuess('#checkPitchGuess', 'pitchGuess', '#pitchGuessFeedback', 'b', 'Com més vibracions hi ha cada segon, més agut és el so.');
 setupGuess('#checkDbGuess', 'dbGuess', '#dbGuessFeedback', 'b', 'Els dB indiquen el nivell amb què ens arriba el so.');
 
-$('#startVibration').addEventListener('click', () => {
+$('#startVibration').addEventListener('click', async () => {
   const lab = $('#vibrationLab');
   lab.classList.remove('is-running');
   requestAnimationFrame(() => lab.classList.add('is-running'));
-  $('#vibrationResult').textContent = 'La vibració passa de puntet a puntet. L’aire es mou al seu lloc, però no viatja fins a l’orella.';
+  try {
+    await playDrumHit();
+    $('#vibrationResult').textContent = 'Escolta el tambor i mira com la vibració passa de puntet a puntet. L’aire es mou al seu lloc, però no viatja fins a l’orella.';
+  } catch {
+    $('#vibrationResult').textContent = 'La vibració passa de puntet a puntet. L’aire es mou al seu lloc, però no viatja fins a l’orella.';
+  }
   setTimeout(() => lab.classList.remove('is-running'), 1900);
 });
 
