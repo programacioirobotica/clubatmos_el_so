@@ -343,15 +343,31 @@ function waveSettings() {
 function drawWaveLab() {
   const rect = resizeCanvas(waveLabCanvas, waveLabCtx);
   const { pitch, strength, frequency, db } = waveSettings();
+  const plot = { left: 58, right: rect.width - 16, top: 24, bottom: rect.height - 38 };
+  const midY = (plot.top + plot.bottom) / 2;
   waveLabCtx.clearRect(0, 0, rect.width, rect.height);
   waveLabCtx.strokeStyle = 'rgba(50,214,196,.15)';
   waveLabCtx.lineWidth = 1;
-  for (let y = 28; y < rect.height; y += 28) { waveLabCtx.beginPath(); waveLabCtx.moveTo(0, y); waveLabCtx.lineTo(rect.width, y); waveLabCtx.stroke(); }
+  for (let y = plot.top; y <= plot.bottom; y += 28) { waveLabCtx.beginPath(); waveLabCtx.moveTo(plot.left, y); waveLabCtx.lineTo(plot.right, y); waveLabCtx.stroke(); }
+  waveLabCtx.strokeStyle = 'rgba(255,255,255,.55)';
+  waveLabCtx.beginPath(); waveLabCtx.moveTo(plot.left, plot.top); waveLabCtx.lineTo(plot.left, plot.bottom); waveLabCtx.lineTo(plot.right, plot.bottom); waveLabCtx.stroke();
+  waveLabCtx.strokeStyle = 'rgba(255,255,255,.22)';
+  waveLabCtx.beginPath(); waveLabCtx.moveTo(plot.left, midY); waveLabCtx.lineTo(plot.right, midY); waveLabCtx.stroke();
+  waveLabCtx.fillStyle = 'rgba(255,255,255,.75)';
+  waveLabCtx.font = '12px ui-monospace, SFMono-Regular, Consolas, monospace';
+  waveLabCtx.textAlign = 'center';
+  waveLabCtx.fillText('temps', plot.right - 18, rect.height - 10);
+  waveLabCtx.textAlign = 'left';
+  waveLabCtx.fillText('amplitud', 7, plot.top - 7);
+  waveLabCtx.textAlign = 'right';
+  waveLabCtx.fillText('+', plot.left - 10, plot.top + 5);
+  waveLabCtx.fillText('0', plot.left - 10, midY + 4);
+  waveLabCtx.fillText('−', plot.left - 10, plot.bottom + 4);
   const amplitude = 12 + strength * 5;
   const cycles = 1.2 + pitch * .55;
   waveLabCtx.beginPath();
-  for (let x = 0; x <= rect.width; x += 2) {
-    const y = rect.height / 2 + Math.sin((x / rect.width) * Math.PI * 2 * cycles) * amplitude;
+  for (let x = plot.left; x <= plot.right; x += 2) {
+    const y = midY + Math.sin(((x - plot.left) / (plot.right - plot.left)) * Math.PI * 2 * cycles) * amplitude;
     if (x === 0) waveLabCtx.moveTo(x, y); else waveLabCtx.lineTo(x, y);
   }
   const gradient = waveLabCtx.createLinearGradient(0, 0, rect.width, 0);
