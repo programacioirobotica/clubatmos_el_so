@@ -314,7 +314,7 @@ function setupGuess(buttonId, name, feedbackId, correctValue, correctText) {
   });
 }
 
-setupGuess('#checkTravelGuess', 'travelGuess', '#travelGuessFeedback', 'b', 'La vibració passa d’una part de l’aire a la següent.');
+setupGuess('#checkTravelGuess', 'travelGuess', '#travelGuessFeedback', 'b', 'La vibració passa d’una “part” de l’aire a la següent.');
 setupGuess('#checkPitchGuess', 'pitchGuess', '#pitchGuessFeedback', 'b', 'Com més vibracions hi ha cada segon, més agut és el so.');
 setupGuess('#checkDbGuess', 'dbGuess', '#dbGuessFeedback', 'b', 'Els dB indiquen el nivell amb què ens arriba el so.');
 
