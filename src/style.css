@@ -139,7 +139,7 @@ h1 em { color: var(--lime); font-style: normal; }
 .situation-sim > label { margin: 20px 0 8px; font-weight: 750; }
 .situation-scale { display: flex; justify-content: space-between; margin-top: 6px; color: rgba(255,255,255,.65); font-size: .68rem; }
 
-.lab-section { padding: 110px clamp(20px, 5vw, 80px); }
+.lab-section { padding: 110px clamp(20px, 5vw, 80px) 48px; }
 .section-heading { max-width: 1440px; display: flex; justify-content: space-between; gap: 40px; margin: 0 auto 40px; }
 .section-heading h2, .mission-intro h2 { margin-bottom: 0; font-size: clamp(2.25rem, 4vw, 4rem); line-height: 1; letter-spacing: -.045em; }
 .section-heading > p { max-width: 450px; align-self: end; margin-bottom: 4px; color: var(--muted); line-height: 1.65; }
