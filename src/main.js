@@ -308,7 +308,7 @@ function setupGuess(buttonId, name, feedbackId, correctValue, correctText) {
       feedback.className = 'success-text';
       updateProgress(name);
     } else {
-      feedback.textContent = `Encara no. ${correctText}`;
+      feedback.textContent = `Resposta incorrecta. ${correctText}`;
       feedback.className = 'error-text';
     }
   });
