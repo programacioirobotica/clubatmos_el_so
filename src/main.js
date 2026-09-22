@@ -316,7 +316,7 @@ function setupGuess(buttonId, name, feedbackId, correctValue, correctText) {
 
 setupGuess('#checkTravelGuess', 'travelGuess', '#travelGuessFeedback', 'b', 'La vibració passa d’una “part” de l’aire a la següent.');
 setupGuess('#checkPitchGuess', 'pitchGuess', '#pitchGuessFeedback', 'b', 'Com més vibracions hi ha cada segon, més agut és el so.');
-setupGuess('#checkDbGuess', 'dbGuess', '#dbGuessFeedback', 'b', 'Els dB indiquen el nivell amb què ens arriba el so.');
+setupGuess('#checkDbGuess', 'dbGuess', '#dbGuessFeedback', 'b', 'Els dB indiquen el nivell sonor, és a dir, com d’intens ens arriba el so.');
 
 $('#startVibration').addEventListener('click', async () => {
   const lab = $('#vibrationLab');
