@@ -444,7 +444,7 @@ function completeActivity(key, tabId) {
   tab.classList.add('completed');
   $('.tab-state', tab).textContent = 'Feta ✓';
   $('#activityDone').textContent = completedActivities.size;
-  $('#activityProgressFill').style.width = `${(completedActivities.size / 3) * 100}%`;
+  $('#activityProgressFill').style.width = `${(completedActivities.size / 2) * 100}%`;
 }
 
 activityTabs.forEach(tab => tab.addEventListener('click', () => selectActivity(tab.dataset.panel)));
