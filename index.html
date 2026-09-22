@@ -102,7 +102,7 @@
             <fieldset class="hypothesis-card" id="pitchHypothesis"><legend>Abans de provar-ho: què farà el so més agut?</legend><label><input type="radio" name="pitchGuess" value="a"/> Fer l’ona més alta.</label><label><input type="radio" name="pitchGuess" value="b"/> Fer més vibracions cada segon.</label><button type="button" id="checkPitchGuess">Comprova la meva idea</button><p id="pitchGuessFeedback" aria-live="polite"></p></fieldset>
           </div>
           <div class="wave-sim">
-            <canvas id="waveLabCanvas" width="760" height="280" aria-label="Ona que canvia segons la freqüència i la intensitat"></canvas>
+            <canvas id="waveLabCanvas" width="760" height="280" aria-label="Ona que canvia segons la freqüència i la intensitat. L’eix horitzontal mostra el temps i el vertical l’amplitud."></canvas>
             <div class="wave-controls">
               <label for="pitchSlider"><span>TO</span><b id="pitchWord">greu</b><input id="pitchSlider" type="range" min="1" max="10" value="3"/><small>poques vibracions ← → moltes vibracions</small></label>
               <label for="strengthSlider"><span>INTENSITAT</span><b id="strengthWord">fluix</b><input id="strengthSlider" type="range" min="1" max="10" value="3"/><small>ona petita ← → ona gran</small></label>
@@ -117,15 +117,15 @@
           <div class="lesson-copy">
             <span class="lesson-number">03 · DECIBELS</span>
             <h3>Els decibels indiquen el nivell del so</h3>
-            <p>Fem servir els <strong>decibels</strong>, que escrivim <strong>dB</strong>, per comparar si un so arriba amb més o menys intensitat. Els dB no ens diuen si el so és greu o agut.</p>
-            <fieldset class="hypothesis-card" id="dbHypothesis"><legend>Abans de provar-ho: què mesuren els dB?</legend><label><input type="radio" name="dbGuess" value="a"/> Si el so és greu o agut.</label><label><input type="radio" name="dbGuess" value="b"/> El nivell amb què ens arriba el so.</label><button type="button" id="checkDbGuess">Comprova la meva idea</button><p id="dbGuessFeedback" aria-live="polite"></p></fieldset>
+            <p>Els <strong>decibels</strong>, que escrivim <strong>dB</strong>, indiquen el <strong>nivell sonor</strong>: ens diuen com d’intens és un so quan ens arriba. Com més dB, més fort el percebem. No indiquen si el so és greu o agut.</p>
+            <fieldset class="hypothesis-card" id="dbHypothesis"><legend>Abans de provar-ho: què mesuren els dB?</legend><label><input type="radio" name="dbGuess" value="a"/> Si el so és greu o agut.</label><label><input type="radio" name="dbGuess" value="b"/> El nivell sonor, és a dir, com d’intens ens arriba.</label><button type="button" id="checkDbGuess">Comprova la meva idea</button><p id="dbGuessFeedback" aria-live="polite"></p></fieldset>
           </div>
           <div class="situation-sim">
             <div class="situation-stage" id="situationStage"><span id="situationIcon" aria-hidden="true">🤫</span><div><small id="situationZone">MOLT TRANQUIL</small><h4 id="situationName">Un xiuxiueig</h4><p id="situationAdvice">És un so molt fluix.</p></div><strong><b id="situationDb">20</b> dB</strong></div>
             <label for="situationSlider">Mou el control per visitar diferents situacions</label>
             <input id="situationSlider" type="range" min="0" max="7" step="1" value="0" aria-describedby="situationNote"/>
             <div class="situation-scale" aria-hidden="true"><span>fluix</span><span>moderat</span><span>fort</span><span>molt fort</span></div>
-            <p id="situationNote" class="sim-note">Són valors aproximats. El temps que passem escoltant un so també és important.</p>
+            <p id="situationNote" class="sim-note">Són valors aproximats.</p>
           </div>
         </article>
       </section>
