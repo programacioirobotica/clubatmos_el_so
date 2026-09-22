@@ -228,12 +228,12 @@
         <div class="activity-studio" id="activitats">
           <div class="activity-studio-head">
             <div>
-              <p class="eyebrow"><span></span> Estació d’activitats · 3 activitats</p>
+              <p class="eyebrow"><span></span> Estació d’activitats · 2 activitats</p>
               <h2>Posa a prova el que has descobert</h2>
             </div>
             <div class="activity-course-progress" aria-live="polite">
-              <p>Completa les tres activitats. Quan n’acabis una, continua amb la següent.</p>
-              <strong><span id="activityDone">0</span> de 3 activitats completades</strong>
+            <p>Completa les dues activitats. Quan n’acabis una, continua amb la següent.</p>
+            <strong><span id="activityDone">0</span> de 2 activitats completades</strong>
               <div class="course-progress-track" aria-hidden="true"><i id="activityProgressFill"></i></div>
             </div>
           </div>
@@ -241,7 +241,6 @@
           <div class="activity-tabs" role="tablist" aria-label="Activitats disponibles">
             <button type="button" role="tab" aria-selected="true" aria-controls="activityClassify" id="tabClassify" data-panel="activityClassify"><span>01</span><b>Classifica</b><small class="tab-state">Pendent</small></button>
             <button type="button" role="tab" aria-selected="false" aria-controls="activityMap" id="tabMap" data-panel="activityMap"><span>02</span><b>Mapa acústic</b><small class="tab-state">Pendent</small></button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="activityMixer" id="tabMixer" data-panel="activityMixer"><span>03</span><b>Mescla fonts <em class="eso-badge">ESO</em></b><small class="tab-state">Pendent</small></button>
           </div>
 
           <div class="activity-panels">
@@ -349,12 +348,12 @@
                   <div class="map-zone court"><span class="zone-name">PISTA ESPORTIVA</span><div class="court-circle" aria-hidden="true"></div><div class="goal goal-left" aria-hidden="true"></div><div class="goal goal-right" aria-hidden="true"></div></div>
                   <div class="map-zone benches"><span class="zone-name">ZONA DE BANCS</span><div class="bench-row" aria-hidden="true"><i></i><i></i><i></i></div></div>
                   <div class="map-zone street"><span class="zone-name">CARRER AMB TRÀNSIT</span><svg class="street-car car-one" aria-hidden="true"><use href="#icon-car"></use></svg><svg class="street-car car-two" aria-hidden="true"><use href="#icon-car"></use></svg></div>
-                  <div class="school-fence" aria-hidden="true"><span>VALLA DEL PATI</span></div>
+                  <div class="school-fence" aria-hidden="true"><span>TANCA DEL PATI</span></div>
                   <button type="button" class="map-point" style="--x:30%;--y:28%" data-point="A" data-place="entrada de l’escola" data-db="58" aria-label="Mesura el punt A, entrada de l’escola"><span>A</span><b>?</b><em>entrada</em></button>
                   <button type="button" class="map-point" style="--x:14%;--y:69%" data-point="B" data-place="jardí" data-db="49" aria-label="Mesura el punt B, jardí i arbres"><span>B</span><b>?</b><em>jardí</em></button>
                   <button type="button" class="map-point" style="--x:49%;--y:51%" data-point="C" data-place="centre de la pista" data-db="72" aria-label="Mesura el punt C, centre de la pista"><span>C</span><b>?</b><em>pista</em></button>
                   <button type="button" class="map-point" style="--x:63%;--y:84%" data-point="D" data-place="zona de bancs" data-db="65" aria-label="Mesura el punt D, zona de bancs"><span>D</span><b>?</b><em>bancs</em></button>
-                  <button type="button" class="map-point" style="--x:77%;--y:33%" data-point="E" data-place="prop de la valla" data-db="79" aria-label="Mesura el punt E, prop de la valla i del carrer"><span>E</span><b>?</b><em>valla</em></button>
+                  <button type="button" class="map-point" style="--x:77%;--y:33%" data-point="E" data-place="prop de la tanca" data-db="79" aria-label="Mesura el punt E, prop de la tanca i del carrer"><span>E</span><b>?</b><em>tanca</em></button>
                     <button type="button" class="map-point" style="--x:91%;--y:67%" data-point="F" data-place="carrer" data-db="74" aria-label="Mesura el punt F, carrer amb trànsit"><span>F</span><b>?</b><em>carrer</em></button>
                   </div>
                 </div>
@@ -370,18 +369,12 @@
                   </div>
                   <button class="activity-check" id="checkMap" type="button">Comprova la decisió</button>
                   <p class="activity-feedback" id="mapFeedback" aria-live="polite"></p>
-                  <button class="next-activity" type="button" data-next="activityMixer" hidden>Continua amb l’activitat 3 <span aria-hidden="true">→</span></button>
                 </div>
               </div>
             </section>
           </div>
         </div>
 
-        <div class="concept-row">
-          <article><span>01</span><h3>El comptador de dB</h3><p>Quan doblem dos sons iguals, el nombre de dB només puja 3.</p></article>
-          <article><span>02</span><h3>Distància</h3><p>En un espai obert ideal, doblar la distància redueix el nivell aproximadament 6 dB.</p></article>
-          <article><span>03</span><h3>Com reduïm el soroll?</h3><p>Podem abaixar el volum, allunyar-nos o posar una barrera entre el so i nosaltres.</p></article>
-        </div>
       </section>
 
       <section class="effects-section" id="consequencies">
